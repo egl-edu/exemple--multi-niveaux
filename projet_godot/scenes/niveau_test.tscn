@@ -1,0 +1,294 @@
+[gd_scene load_steps=17 format=4 uid="uid://df4o6yn6uk8hi"]
+
+[ext_resource type="TileSet" uid="uid://cwqycux5h0q2u" path="res://assets/spritesheets/paysage_tile_set.tres" id="1_lbg1e"]
+[ext_resource type="PackedScene" uid="uid://dirydc1jhbrdb" path="res://scenes/joueur.tscn" id="2_ktk5d"]
+[ext_resource type="PackedScene" uid="uid://de82iea1y2ek7" path="res://scenes/panneau_message.tscn" id="3_ruoco"]
+[ext_resource type="Script" uid="uid://cnf4o5qr4x1by" path="res://scripts/controle_camera.gd" id="4_5hoti"]
+[ext_resource type="PackedScene" uid="uid://dklftmfk5csx5" path="res://scenes/ascenseur.tscn" id="5_tiqbr"]
+[ext_resource type="Texture2D" uid="uid://c58umbbvl567u" path="res://assets/sprites/terrain_grass_block_left.png" id="6_7e15m"]
+[ext_resource type="Texture2D" uid="uid://bpqpitbbpsgoi" path="res://assets/sprites/terrain_grass_block_right.png" id="7_danug"]
+[ext_resource type="Texture2D" uid="uid://bd785rnaxi1am" path="res://assets/sprites/terrain_grass_block_top_left.png" id="8_rewv3"]
+[ext_resource type="Texture2D" uid="uid://mmlgpgsu7veb" path="res://assets/sprites/terrain_grass_block_top_right.png" id="9_duk5p"]
+[ext_resource type="Texture2D" uid="uid://hvdvqe5s0pev" path="res://assets/sprites/terrain_grass_block_bottom_left.png" id="10_ex7nm"]
+[ext_resource type="Texture2D" uid="uid://bbo0b3mdv7gcx" path="res://assets/sprites/terrain_grass_block_bottom_right.png" id="11_eph2o"]
+[ext_resource type="PackedScene" uid="uid://j05okgtuaimk" path="res://scenes/menu_controle.tscn" id="12_danug"]
+[ext_resource type="Script" uid="uid://bduvelojw5swt" path="res://scripts/porte_niveau.gd" id="13_rewv3"]
+[ext_resource type="PackedScene" uid="uid://dwvq0v5nu4niq" path="res://scenes/end_game.tscn" id="14_duk5p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlrp8"]
+size = Vector2(128, 189)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_danug"]
+size = Vector2(20, 44)
+
+[node name="NiveauTest" type="Node"]
+
+[node name="Ascenseur" parent="." instance=ExtResource("5_tiqbr")]
+position = Vector2(960, 544)
+range_y = 448
+duration = 6
+
+[node name="BlocsStatiques" type="Node2D" parent="."]
+
+[node name="BlocStatique2" type="StaticBody2D" parent="BlocsStatiques"]
+position = Vector2(1536, 288)
+metadata/_edit_group_ = true
+
+[node name="TerrainGrassBlockLeft" type="Sprite2D" parent="BlocsStatiques/BlocStatique2"]
+position = Vector2(-32, 0)
+texture = ExtResource("6_7e15m")
+
+[node name="TerrainGrassBlockRight" type="Sprite2D" parent="BlocsStatiques/BlocStatique2"]
+position = Vector2(32, 0)
+texture = ExtResource("7_danug")
+
+[node name="TerrainGrassBlockTopLeft" type="Sprite2D" parent="BlocsStatiques/BlocStatique2"]
+position = Vector2(-32, -64)
+texture = ExtResource("8_rewv3")
+
+[node name="TerrainGrassBlockTopRight" type="Sprite2D" parent="BlocsStatiques/BlocStatique2"]
+position = Vector2(32, -64)
+texture = ExtResource("9_duk5p")
+
+[node name="TerrainGrassBlockBottomLeft" type="Sprite2D" parent="BlocsStatiques/BlocStatique2"]
+position = Vector2(-32, 64)
+texture = ExtResource("10_ex7nm")
+
+[node name="TerrainGrassBlockBottomRight" type="Sprite2D" parent="BlocsStatiques/BlocStatique2"]
+position = Vector2(32, 64)
+texture = ExtResource("11_eph2o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlocsStatiques/BlocStatique2"]
+shape = SubResource("RectangleShape2D_vlrp8")
+
+[node name="BlocStatique4" type="StaticBody2D" parent="BlocsStatiques"]
+position = Vector2(1472, 800)
+metadata/_edit_group_ = true
+
+[node name="TerrainGrassBlockLeft" type="Sprite2D" parent="BlocsStatiques/BlocStatique4"]
+position = Vector2(-32, 0)
+texture = ExtResource("6_7e15m")
+
+[node name="TerrainGrassBlockRight" type="Sprite2D" parent="BlocsStatiques/BlocStatique4"]
+position = Vector2(32, 0)
+texture = ExtResource("7_danug")
+
+[node name="TerrainGrassBlockTopLeft" type="Sprite2D" parent="BlocsStatiques/BlocStatique4"]
+position = Vector2(-32, -64)
+texture = ExtResource("8_rewv3")
+
+[node name="TerrainGrassBlockTopRight" type="Sprite2D" parent="BlocsStatiques/BlocStatique4"]
+position = Vector2(32, -64)
+texture = ExtResource("9_duk5p")
+
+[node name="TerrainGrassBlockBottomLeft" type="Sprite2D" parent="BlocsStatiques/BlocStatique4"]
+position = Vector2(-32, 64)
+texture = ExtResource("10_ex7nm")
+
+[node name="TerrainGrassBlockBottomRight" type="Sprite2D" parent="BlocsStatiques/BlocStatique4"]
+position = Vector2(32, 64)
+texture = ExtResource("11_eph2o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlocsStatiques/BlocStatique4"]
+shape = SubResource("RectangleShape2D_vlrp8")
+
+[node name="BlocStatique5" type="StaticBody2D" parent="BlocsStatiques"]
+position = Vector2(64, 672)
+metadata/_edit_group_ = true
+
+[node name="TerrainGrassBlockLeft" type="Sprite2D" parent="BlocsStatiques/BlocStatique5"]
+position = Vector2(-32, 0)
+texture = ExtResource("6_7e15m")
+
+[node name="TerrainGrassBlockRight" type="Sprite2D" parent="BlocsStatiques/BlocStatique5"]
+position = Vector2(32, 0)
+texture = ExtResource("7_danug")
+
+[node name="TerrainGrassBlockTopLeft" type="Sprite2D" parent="BlocsStatiques/BlocStatique5"]
+position = Vector2(-32, -64)
+texture = ExtResource("8_rewv3")
+
+[node name="TerrainGrassBlockTopRight" type="Sprite2D" parent="BlocsStatiques/BlocStatique5"]
+position = Vector2(32, -64)
+texture = ExtResource("9_duk5p")
+
+[node name="TerrainGrassBlockBottomLeft" type="Sprite2D" parent="BlocsStatiques/BlocStatique5"]
+position = Vector2(-32, 64)
+texture = ExtResource("10_ex7nm")
+
+[node name="TerrainGrassBlockBottomRight" type="Sprite2D" parent="BlocsStatiques/BlocStatique5"]
+position = Vector2(32, 64)
+texture = ExtResource("11_eph2o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlocsStatiques/BlocStatique5"]
+shape = SubResource("RectangleShape2D_vlrp8")
+
+[node name="BlocStatique6" type="StaticBody2D" parent="BlocsStatiques"]
+position = Vector2(-64, 608)
+metadata/_edit_group_ = true
+
+[node name="TerrainGrassBlockLeft" type="Sprite2D" parent="BlocsStatiques/BlocStatique6"]
+position = Vector2(-32, 0)
+texture = ExtResource("6_7e15m")
+
+[node name="TerrainGrassBlockRight" type="Sprite2D" parent="BlocsStatiques/BlocStatique6"]
+position = Vector2(32, 0)
+texture = ExtResource("7_danug")
+
+[node name="TerrainGrassBlockTopLeft" type="Sprite2D" parent="BlocsStatiques/BlocStatique6"]
+position = Vector2(-32, -64)
+texture = ExtResource("8_rewv3")
+
+[node name="TerrainGrassBlockTopRight" type="Sprite2D" parent="BlocsStatiques/BlocStatique6"]
+position = Vector2(32, -64)
+texture = ExtResource("9_duk5p")
+
+[node name="TerrainGrassBlockBottomLeft" type="Sprite2D" parent="BlocsStatiques/BlocStatique6"]
+position = Vector2(-32, 64)
+texture = ExtResource("10_ex7nm")
+
+[node name="TerrainGrassBlockBottomRight" type="Sprite2D" parent="BlocsStatiques/BlocStatique6"]
+position = Vector2(32, 64)
+texture = ExtResource("11_eph2o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlocsStatiques/BlocStatique6"]
+shape = SubResource("RectangleShape2D_vlrp8")
+
+[node name="BlocStatique7" type="StaticBody2D" parent="BlocsStatiques"]
+position = Vector2(-64, 800)
+metadata/_edit_group_ = true
+
+[node name="TerrainGrassBlockLeft" type="Sprite2D" parent="BlocsStatiques/BlocStatique7"]
+position = Vector2(-32, 0)
+texture = ExtResource("6_7e15m")
+
+[node name="TerrainGrassBlockRight" type="Sprite2D" parent="BlocsStatiques/BlocStatique7"]
+position = Vector2(32, 0)
+texture = ExtResource("7_danug")
+
+[node name="TerrainGrassBlockTopLeft" type="Sprite2D" parent="BlocsStatiques/BlocStatique7"]
+position = Vector2(-32, -64)
+texture = ExtResource("8_rewv3")
+
+[node name="TerrainGrassBlockTopRight" type="Sprite2D" parent="BlocsStatiques/BlocStatique7"]
+position = Vector2(32, -64)
+texture = ExtResource("9_duk5p")
+
+[node name="TerrainGrassBlockBottomLeft" type="Sprite2D" parent="BlocsStatiques/BlocStatique7"]
+position = Vector2(-32, 64)
+texture = ExtResource("10_ex7nm")
+
+[node name="TerrainGrassBlockBottomRight" type="Sprite2D" parent="BlocsStatiques/BlocStatique7"]
+position = Vector2(32, 64)
+texture = ExtResource("11_eph2o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlocsStatiques/BlocStatique7"]
+shape = SubResource("RectangleShape2D_vlrp8")
+
+[node name="BlocStatique3" type="StaticBody2D" parent="BlocsStatiques"]
+position = Vector2(1472, 608)
+metadata/_edit_group_ = true
+
+[node name="TerrainGrassBlockLeft" type="Sprite2D" parent="BlocsStatiques/BlocStatique3"]
+position = Vector2(-32, 0)
+texture = ExtResource("6_7e15m")
+
+[node name="TerrainGrassBlockRight" type="Sprite2D" parent="BlocsStatiques/BlocStatique3"]
+position = Vector2(32, 0)
+texture = ExtResource("7_danug")
+
+[node name="TerrainGrassBlockTopLeft" type="Sprite2D" parent="BlocsStatiques/BlocStatique3"]
+position = Vector2(-32, -64)
+texture = ExtResource("8_rewv3")
+
+[node name="TerrainGrassBlockTopRight" type="Sprite2D" parent="BlocsStatiques/BlocStatique3"]
+position = Vector2(32, -64)
+texture = ExtResource("9_duk5p")
+
+[node name="TerrainGrassBlockBottomLeft" type="Sprite2D" parent="BlocsStatiques/BlocStatique3"]
+position = Vector2(-32, 64)
+texture = ExtResource("10_ex7nm")
+
+[node name="TerrainGrassBlockBottomRight" type="Sprite2D" parent="BlocsStatiques/BlocStatique3"]
+position = Vector2(32, 64)
+texture = ExtResource("11_eph2o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlocsStatiques/BlocStatique3"]
+shape = SubResource("RectangleShape2D_vlrp8")
+
+[node name="BlocStatique" type="StaticBody2D" parent="BlocsStatiques"]
+position = Vector2(832, 160)
+metadata/_edit_group_ = true
+
+[node name="TerrainGrassBlockLeft" type="Sprite2D" parent="BlocsStatiques/BlocStatique"]
+position = Vector2(-32, 0)
+texture = ExtResource("6_7e15m")
+
+[node name="TerrainGrassBlockRight" type="Sprite2D" parent="BlocsStatiques/BlocStatique"]
+position = Vector2(32, 0)
+texture = ExtResource("7_danug")
+
+[node name="TerrainGrassBlockTopLeft" type="Sprite2D" parent="BlocsStatiques/BlocStatique"]
+position = Vector2(-32, -64)
+texture = ExtResource("8_rewv3")
+
+[node name="TerrainGrassBlockTopRight" type="Sprite2D" parent="BlocsStatiques/BlocStatique"]
+position = Vector2(32, -64)
+texture = ExtResource("9_duk5p")
+
+[node name="TerrainGrassBlockBottomLeft" type="Sprite2D" parent="BlocsStatiques/BlocStatique"]
+position = Vector2(-32, 64)
+texture = ExtResource("10_ex7nm")
+
+[node name="TerrainGrassBlockBottomRight" type="Sprite2D" parent="BlocsStatiques/BlocStatique"]
+position = Vector2(32, 64)
+texture = ExtResource("11_eph2o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlocsStatiques/BlocStatique"]
+shape = SubResource("RectangleShape2D_vlrp8")
+
+[node name="PlancherTileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAADAAMAAAABAA4AAAADAAQAAAABABEAAAAEAAQAAAABABEAAAAFAAQAAAABAA4AAAAFAAMAAAABAAwAAAAEAAMAAAABAA4AAAACAAQAAAABABAAAAACAAMAAAABAA0AAAAFAAIAAAABAAkAAAAEAAIAAAABAAsAAAADAAIAAAABAAsAAAACAAIAAAABAAoAAAAGAAQAAAABAAsAAAAGAAUAAAABABEAAAAHAAUAAAABABEAAAAHAAQAAAABAAsAAAAIAAQAAAABAAkAAAAIAAUAAAABAA8AAAAFAAUAAAABABAAAAATAAcAAAABABEAAAATAAYAAAABAAsAAAAUAAYAAAABAAsAAAAUAAcAAAABABEAAAAFAAkAAAABAAkAAAAFAAoAAAABAAwAAAAFAAsAAAABAA4AAAAGAAsAAAABAAsAAAAHAAsAAAABAAsAAAAIAAsAAAABAAsAAAAJAAsAAAABAA4AAAAKAAsAAAABAA4AAAAKAAwAAAABAA4AAAALAAwAAAABAA4AAAAMAAwAAAABAA4AAAANAAwAAAABAA4AAAAOAAwAAAABAA4AAAAPAAwAAAABAA4AAAAPAA0AAAABABEAAAAQAA0AAAABABEAAAAQAAwAAAABAA4AAAARAAwAAAABAA4AAAASAAwAAAABAA4AAAATAAwAAAABAA4AAAAUAAwAAAABAA4AAAAVAAwAAAABAAwAAAAUAAsAAAABAA4AAAATAAsAAAABAA4AAAASAAsAAAABAA4AAAARAAsAAAABAA4AAAAQAAsAAAABAA4AAAAPAAsAAAABAA4AAAAOAAsAAAABAA4AAAALAAsAAAABAA4AAAAMAAsAAAABAA4AAAANAAsAAAABAA4AAAAVAAsAAAABAAwAAAAVAAoAAAABAAkAAAAUAAoAAAABAAsAAAATAAoAAAABAAsAAAASAAoAAAABAAsAAAARAAoAAAABAAsAAAAQAAoAAAABAAsAAAAPAAoAAAABAAsAAAAOAAoAAAABAAsAAAANAAoAAAABAAsAAAAMAAoAAAABAAsAAAAJAAoAAAABAAoAAAAKAAoAAAABAAsAAAALAAoAAAABAAsAAAAJAAwAAAABAA4AAAAIAAwAAAABAA4AAAAHAAwAAAABAA4AAAAGAAwAAAABAA4AAAAFAAwAAAABAA4AAAAVAA0AAAABAA8AAAAUAA0AAAABABEAAAATAA0AAAABABEAAAASAA0AAAABABEAAAARAA0AAAABABEAAAAOAA0AAAABABEAAAANAA0AAAABABEAAAAMAA0AAAABABEAAAALAA0AAAABABEAAAAKAA0AAAABABEAAAAJAA0AAAABABEAAAAIAA0AAAABABEAAAAHAA0AAAABABEAAAAGAA0AAAABABEAAAAFAA0AAAABABEAAAAEAA0AAAABABEAAAADAA0AAAABABEAAAADAAwAAAABAA4AAAACAAwAAAABAA4AAAACAA0AAAABABEAAAABAA0AAAABABAAAAABAAwAAAABAAoAAAAEAAwAAAABAA4AAAAEAAsAAAABAA4AAAAEAAkAAAABAA4AAAAEAAgAAAABAAkAAAABAAgAAAABABEAAAD//wYAAAABAAwAAAD//wcAAAABABEAAAD+/wcAAAABABAAAAD+/wYAAAABAA0AAAD+/wUAAAABAA0AAAD+/wQAAAABAA0AAAD+/wMAAAABAAoAAAD//wIAAAAAAAkAAAD//wMAAAABAAwAAAD//wQAAAABAAwAAAD//wUAAAABAAwAAAAAAAgAAAABABAAAAAAAAcAAAABAAsAAAABAAcAAAABAAsAAAACAAgAAAABAA4AAAADAAgAAAABAA4AAAADAAcAAAABAAkAAAACAAcAAAABAAsAAAADAAkAAAABAA4AAAAEAAoAAAABAA4AAAADAAoAAAABAA4AAAADAAsAAAABAA4AAAACAAsAAAABAA0AAAACAAoAAAABAA0AAAACAAkAAAABAA0AAAALAAYAAAABAAoAAAALAAcAAAABABAAAAAMAAcAAAABABEAAAANAAcAAAABAA8AAAAUAAIAAAABAAwAAAAUAAEAAAAAAAkAAAATAAIAAAABAAoAAAAVAAYAAAABAAsAAAAWAAYAAAABAAsAAAAWAAcAAAABABEAAAAVAAcAAAABABEAAAAXAAYAAAABAAkAAAAXAAcAAAABAA8AAAASAAYAAAABAAoAAAASAAcAAAABABAAAAATAAMAAAABABAAAAAUAAMAAAABAA8AAAANAAYAAAABAAkAAAAMAAYAAAABAAsAAAA=")
+tile_set = ExtResource("1_lbg1e")
+
+[node name="DecorTileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAUAAkAAAAPAAAAAAAKAAkAAAAOAAEAAAASAAUAAAAOAAEAAAAHAAMAAAAOAAEAAAACAAYAAAAOAAEAAAADAAYAAAAOAAAAAAAEAAEAAAAOAAAAAAAQAAkAAAAOAAAAAAARAAkAAAAOAAAAAAATAAEAAAAOAAAAAAA=")
+tile_set = ExtResource("1_lbg1e")
+
+[node name="PanneauMessage" parent="." groups=["panneaux"] instance=ExtResource("3_ruoco")]
+position = Vector2(544, 256)
+message = "J'aime cet exemple."
+
+[node name="PanneauMessage2" parent="." groups=["panneaux"] instance=ExtResource("3_ruoco")]
+position = Vector2(1192, 640)
+message = "Quelles d'autres mécaniques on peut créer pour ce jeu ?"
+
+[node name="Joueur" parent="." instance=ExtResource("2_ktk5d")]
+position = Vector2(200, 120)
+metadata/_edit_group_ = true
+
+[node name="Camera2D" type="Camera2D" parent="Joueur"]
+texture_filter = 1
+position = Vector2(5, -1)
+limit_left = -128
+limit_top = 0
+limit_right = 1536
+limit_bottom = 896
+position_smoothing_enabled = true
+editor_draw_limits = true
+script = ExtResource("4_5hoti")
+
+[node name="MenuControle" parent="." instance=ExtResource("12_danug")]
+
+[node name="PorteNiveau" type="Area2D" parent="."]
+position = Vector2(1312, 619)
+script = ExtResource("13_rewv3")
+nouvelle_scene = ExtResource("14_duk5p")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PorteNiveau"]
+shape = SubResource("RectangleShape2D_danug")
+
+[connection signal="body_entered" from="PanneauMessage" to="PanneauMessage" method="show_message"]
+[connection signal="body_entered" from="PanneauMessage2" to="PanneauMessage2" method="show_message"]
+[connection signal="body_entered" from="PorteNiveau" to="PorteNiveau" method="_on_body_entered"]
