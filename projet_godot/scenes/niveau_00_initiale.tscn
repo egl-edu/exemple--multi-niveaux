@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=4 uid="uid://bgd2mer30cim4"]
+
+[ext_resource type="Texture2D" uid="uid://v5g6yauly3wd" path="res://assets/gradient_vert_bleu.tres" id="1_pcvo2"]
+[ext_resource type="Script" uid="uid://bduvelojw5swt" path="res://scripts/porte_niveau.gd" id="2_rdxbm"]
+[ext_resource type="PackedScene" uid="uid://b2686s3s4sfad" path="res://scenes/niveau_01_wall_jump.tscn" id="3_pcvo2"]
+[ext_resource type="Texture2D" uid="uid://dcepbid2o8w4k" path="res://assets/spritesheets/spritesheet-tiles-default.png" id="4_hyh1q"]
+[ext_resource type="TileSet" uid="uid://cwqycux5h0q2u" path="res://assets/spritesheets/paysage_tile_set.tres" id="5_5ti7h"]
+[ext_resource type="PackedScene" uid="uid://de82iea1y2ek7" path="res://scenes/panneau_message.tscn" id="6_x3gr2"]
+[ext_resource type="PackedScene" uid="uid://dirydc1jhbrdb" path="res://scenes/joueur.tscn" id="7_6868w"]
+[ext_resource type="Script" uid="uid://cnf4o5qr4x1by" path="res://scripts/controle_camera.gd" id="8_y0sra"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_danug"]
+size = Vector2(25, 53)
+
+[node name="Niveau00" type="Node"]
+
+[node name="ArrierePlan" type="Sprite2D" parent="."]
+position = Vector2(416, 448)
+scale = Vector2(17, 14)
+texture = ExtResource("1_pcvo2")
+
+[node name="PorteNiveau" type="Area2D" parent="."]
+position = Vector2(768, 216)
+script = ExtResource("2_rdxbm")
+nouvelle_scene = ExtResource("3_pcvo2")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PorteNiveau"]
+texture = ExtResource("4_hyh1q")
+region_enabled = true
+region_rect = Rect2(956.404, -1.40685, 71.3733, 90.4912)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PorteNiveau"]
+position = Vector2(0.5, 11.5)
+shape = SubResource("RectangleShape2D_danug")
+
+[node name="PlancherTileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAEAAYAAAABAA4AAAAFAAYAAAABAA4AAAAGAAYAAAABAA4AAAAHAAYAAAABABEAAAAIAAYAAAABABEAAAAJAAYAAAABAA4AAAAKAAYAAAABAA4AAAAKAAUAAAABAA4AAAAKAAQAAAABAAoAAAALAAQAAAABAAsAAAAMAAQAAAABAAkAAAAMAAUAAAABAAwAAAAMAAYAAAABAAwAAAALAAYAAAABAA4AAAALAAUAAAABAA4AAAAJAAUAAAABAAsAAAAIAAUAAAABAAsAAAAHAAUAAAABAAsAAAAGAAUAAAABAAsAAAAFAAUAAAABAAsAAAAEAAUAAAABAAoAAAAAAAcAAAABAAoAAAAAAAgAAAABAA0AAAABAAgAAAABAA4AAAACAAgAAAABABEAAAADAAgAAAABABEAAAADAAcAAAABAA4AAAACAAcAAAABAAsAAAABAAcAAAABAAsAAAADAAYAAAABAAoAAAAEAAcAAAABAA4AAAAEAAgAAAABABEAAAAFAAgAAAABAA4AAAAFAAcAAAABAA4AAAAKAAcAAAABAA4AAAAKAAgAAAABAA4AAAAKAAkAAAABAA4AAAAKAAoAAAABAA4AAAAKAAsAAAABAA4AAAAKAAwAAAABAA4AAAALAAcAAAABAA4AAAALAAgAAAABAA4AAAALAAkAAAABAA4AAAALAAoAAAABAA4AAAALAAsAAAABAA4AAAALAAwAAAABAA4AAAALAA0AAAABABEAAAAMAAcAAAABAAwAAAAMAAgAAAABAAwAAAAMAAkAAAABAAwAAAAMAAoAAAABAAwAAAAMAAsAAAABAAwAAAAMAAwAAAABAAwAAAAMAA0AAAABAA8AAAAKAA0AAAABABEAAAAAAAkAAAABAA0AAAAAAAoAAAABAA0AAAAAAAsAAAABAA0AAAAAAAwAAAABAA0AAAAAAA0AAAABABAAAAABAAkAAAABAAwAAAABAAoAAAABAAwAAAABAAsAAAABAAwAAAABAAwAAAABAAwAAAABAA0AAAABAA8AAAAFAAkAAAABAA0AAAAFAAoAAAABAA0AAAAFAAsAAAABAA0AAAAFAAwAAAABAA0AAAAFAA0AAAABABAAAAAGAAcAAAABAAwAAAAGAAgAAAABAAwAAAAGAAkAAAABAAwAAAAGAAoAAAABAAwAAAAGAAsAAAABAAwAAAAGAAwAAAABAAwAAAAGAA0AAAABAA8AAAAJAAcAAAABAA0AAAAJAAgAAAABAA0AAAAJAAkAAAABAA0AAAAJAAoAAAABAA0AAAAJAAsAAAABAA0AAAAJAAwAAAABAA0AAAAJAA0AAAABABAAAAA=")
+tile_set = ExtResource("5_5ti7h")
+
+[node name="DecorTileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAIAAQAAAAKABEAAAAJAAQAAAAOAAEAAAAEAAQAAAAOAAAAAAD+/w0AAAAAAAUAAAD//w0AAAAAAAUAAAAAAA0AAAAAAAUAAAABAA0AAAAAAAUAAAACAA0AAAAAAAUAAAADAA0AAAAAAAUAAAAEAA0AAAAAAAUAAAAFAA0AAAAAAAUAAAAGAA0AAAAAAAUAAAAHAA0AAAAAAAUAAAAIAA0AAAAAAAUAAAAJAA0AAAAAAAUAAAAKAA0AAAAAAAUAAAALAA0AAAAAAAUAAAAMAA0AAAAAAAUAAAANAA0AAAAAAAUAAAAOAA0AAAAAAAUAAAD+/wwAAAAAAAQAAAD//wwAAAAAAAQAAAAAAAwAAAAAAAQAAAABAAwAAAAAAAQAAAACAAwAAAAAAAQAAAADAAwAAAAAAAQAAAAEAAwAAAAAAAQAAAAFAAwAAAAAAAQAAAAGAAwAAAAAAAQAAAAHAAwAAAAAAAQAAAAIAAwAAAAAAAQAAAAJAAwAAAAAAAQAAAAKAAwAAAAAAAQAAAALAAwAAAAAAAQAAAAMAAwAAAAAAAQAAAANAAwAAAAAAAQAAAAOAAwAAAAAAAQAAAA=")
+tile_set = ExtResource("5_5ti7h")
+
+[node name="PanneauMessage" parent="." groups=["panneaux"] instance=ExtResource("6_x3gr2")]
+position = Vector2(384, 320)
+message = "Niveau plus simple."
+
+[node name="Joueur" parent="." instance=ExtResource("7_6868w")]
+position = Vector2(32, 448)
+metadata/_edit_group_ = true
+
+[node name="Camera2D" type="Camera2D" parent="Joueur"]
+position = Vector2(5, -1)
+limit_left = -128
+limit_top = 0
+limit_right = 956
+limit_bottom = 896
+position_smoothing_enabled = true
+editor_draw_limits = true
+script = ExtResource("8_y0sra")
+
+[connection signal="body_entered" from="PorteNiveau" to="PorteNiveau" method="_on_body_entered"]
+[connection signal="body_entered" from="PanneauMessage" to="PanneauMessage" method="show_message"]
