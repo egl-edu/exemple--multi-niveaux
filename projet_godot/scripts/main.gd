@@ -3,6 +3,11 @@ extends Node
 @export var monnaies = 0
 signal monnaie_collectee
 
+signal cle_collectee
+
+func debloquer_cle(groupe_cle):
+	cle_collectee.emit(groupe_cle)
+
 
 func augmenter_monnaies():
 	monnaies += 1

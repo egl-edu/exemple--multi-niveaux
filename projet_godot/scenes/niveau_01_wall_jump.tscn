@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dscroh4yyuxie" path="res://scenes/exemples-final/hud_final.tscn" id="1_e52v2"]
 [ext_resource type="Texture2D" uid="uid://bayntyuvnohmg" path="res://assets/gradient_jaune_mauve.tres" id="1_sbilw"]
+[ext_resource type="PackedScene" uid="uid://dy0v8872jlfyb" path="res://scenes/niveau_02_cle_porte.tscn" id="4_rm66m"]
 [ext_resource type="TileSet" uid="uid://cwqycux5h0q2u" path="res://assets/spritesheets/paysage_tile_set.tres" id="8_aujc2"]
 [ext_resource type="Texture2D" uid="uid://dcepbid2o8w4k" path="res://assets/spritesheets/spritesheet-tiles-default.png" id="8_pcvo2"]
 [ext_resource type="PackedScene" uid="uid://hi7t64ijaxck" path="res://scenes/monnaie.tscn" id="9_e52v2"]
@@ -9,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://dirydc1jhbrdb" path="res://scenes/joueur.tscn" id="10_uqc8o"]
 [ext_resource type="Script" uid="uid://cnf4o5qr4x1by" path="res://scripts/controle_camera.gd" id="11_f2s81"]
 [ext_resource type="Script" uid="uid://bduvelojw5swt" path="res://scripts/porte_niveau.gd" id="13_502yv"]
-[ext_resource type="PackedScene" uid="uid://dwvq0v5nu4niq" path="res://scenes/end_game.tscn" id="14_qc0em"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_danug"]
 size = Vector2(25, 53)
@@ -26,7 +26,7 @@ texture = ExtResource("1_sbilw")
 [node name="PorteNiveau" type="Area2D" parent="."]
 position = Vector2(1465, 216)
 script = ExtResource("13_502yv")
-nouvelle_scene = ExtResource("14_qc0em")
+nouvelle_scene = ExtResource("4_rm66m")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PorteNiveau"]

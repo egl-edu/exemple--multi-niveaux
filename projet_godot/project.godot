@@ -24,6 +24,14 @@ window/size/viewport_width=1024
 window/size/viewport_height=768
 window/stretch/mode="canvas_items"
 
+[editor]
+
+movie_writer/movie_file="C:/arquivo/10-19--praticas/11--projetos/11.20--repos-empregos/cegep--mo/movie--multi-niveaux.avi"
+
+[global_group]
+
+cle_bleu=""
+
 [input]
 
 sauter={
