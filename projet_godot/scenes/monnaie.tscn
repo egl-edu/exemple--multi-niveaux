@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://hi7t64ijaxck"]
+
+[ext_resource type="Script" uid="uid://bqapir3akbe1" path="res://scenes/monnaie.gd" id="1_jc0xp"]
+[ext_resource type="Texture2D" uid="uid://cn1ywqm8j5ge3" path="res://assets/sprites/coin_gold.png" id="1_wfl10"]
+[ext_resource type="Texture2D" uid="uid://bgeyt20qyask0" path="res://assets/sprites/coin_gold_side.png" id="2_jc0xp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wfl10"]
+radius = 18.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1aeku"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wfl10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jc0xp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Monnaie" type="Area2D"]
+script = ExtResource("1_jc0xp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wfl10")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1aeku")
+autoplay = "default"
+frame_progress = 0.503475

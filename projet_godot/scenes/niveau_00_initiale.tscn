@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bgd2mer30cim4"]
+[gd_scene load_steps=13 format=4 uid="uid://bgd2mer30cim4"]
 
 [ext_resource type="Texture2D" uid="uid://v5g6yauly3wd" path="res://assets/gradient_vert_bleu.tres" id="1_pcvo2"]
 [ext_resource type="Script" uid="uid://bduvelojw5swt" path="res://scripts/porte_niveau.gd" id="2_rdxbm"]
@@ -8,11 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://de82iea1y2ek7" path="res://scenes/panneau_message.tscn" id="6_x3gr2"]
 [ext_resource type="PackedScene" uid="uid://dirydc1jhbrdb" path="res://scenes/joueur.tscn" id="7_6868w"]
 [ext_resource type="Script" uid="uid://cnf4o5qr4x1by" path="res://scripts/controle_camera.gd" id="8_y0sra"]
+[ext_resource type="PackedScene" uid="uid://dscroh4yyuxie" path="res://scenes/exemples-final/hud_final.tscn" id="9_y4csj"]
+[ext_resource type="PackedScene" uid="uid://hi7t64ijaxck" path="res://scenes/monnaie.tscn" id="10_3hkp0"]
+[ext_resource type="PackedScene" uid="uid://j05okgtuaimk" path="res://scenes/menu_controle.tscn" id="11_htidv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_danug"]
 size = Vector2(25, 53)
 
 [node name="Niveau00" type="Node"]
+
+[node name="HUD" parent="." instance=ExtResource("9_y4csj")]
 
 [node name="ArrierePlan" type="Sprite2D" parent="."]
 position = Vector2(416, 448)
@@ -59,6 +64,11 @@ limit_bottom = 896
 position_smoothing_enabled = true
 editor_draw_limits = true
 script = ExtResource("8_y0sra")
+
+[node name="Monnaie" parent="." instance=ExtResource("10_3hkp0")]
+position = Vector2(538, 178)
+
+[node name="MenuControle" parent="." instance=ExtResource("11_htidv")]
 
 [connection signal="body_entered" from="PorteNiveau" to="PorteNiveau" method="_on_body_entered"]
 [connection signal="body_entered" from="PanneauMessage" to="PanneauMessage" method="show_message"]
