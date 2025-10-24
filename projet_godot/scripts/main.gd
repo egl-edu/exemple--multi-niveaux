@@ -3,10 +3,12 @@ extends Node
 @export var monnaies = 0
 signal monnaie_collectee
 
+var objectif_monnaies_niveau_2 = 4
+
 signal cle_collectee
 
-func debloquer_cle(groupe_cle):
-	cle_collectee.emit(groupe_cle)
+func debloquer_cle(cle):
+	cle_collectee.emit(cle)
 
 
 func augmenter_monnaies():

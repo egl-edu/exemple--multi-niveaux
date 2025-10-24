@@ -16,7 +16,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_danug"]
 size = Vector2(25, 53)
 
-[node name="Niveau00" type="Node"]
+[node name="Niveau02" type="Node"]
 
 [node name="HUD" parent="." instance=ExtResource("1_d266p")]
 

@@ -13,6 +13,16 @@ multichannel_signed_distance_field = true
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_a8wru")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -108.0
+offset_right = 111.0
+offset_bottom = 64.0
+grow_horizontal = 2
+color = Color(0.0352941, 0.0352941, 0.0352941, 0.352941)
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_direction = 2
 anchors_preset = 10

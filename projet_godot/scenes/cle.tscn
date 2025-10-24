@@ -10,11 +10,11 @@ radius = 24.0
 [node name="Cle" type="Area2D"]
 script = ExtResource("1_gonyi")
 
-[node name="KeyBlue" type="Sprite2D" parent="."]
-texture = ExtResource("2_n4kn2")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_tjt8r")
+
+[node name="KeyBlue" type="Sprite2D" parent="."]
+texture = ExtResource("2_n4kn2")
 
 [node name="CleSfx" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
