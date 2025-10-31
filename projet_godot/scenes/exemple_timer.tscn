@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1wxud5p8tyf"]
+
+[ext_resource type="Script" uid="uid://5127hsclgkat" path="res://scripts/exemple_timer.gd" id="1_befth"]
+
+[node name="ExempleTimer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_befth")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 68.0
+offset_right = 329.0
+offset_bottom = 223.0
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
